@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Cards Responsive Test</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            padding: 2rem;
+            background: #0a0a0a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .test-section {
+            margin-bottom: 3rem;
+        }
+
+        .breakpoint-label {
+            background: var(--primary-color);
+            color: black;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .responsive-test {
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Social Cards Responsive Test</h1>
+    <p>Resize your browser window to test different breakpoints</p>
+
+    <div class="test-section">
+        <div class="breakpoint-label">All Screen Sizes</div>
+        <div class="responsive-test">
+            <section class="community">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Connect With Us</h2>
+                        <p class="community-intro">Join the decentralized future</p>
+                    </div>
+
+                    <div class="community-grid">
+                        <div class="community-links">
+                            <div class="social-grid horizontal">
+                                <a href="https://x.com/swarmsight" target="_blank" class="social-card perspective-card">
+                                    <div class="social-icon">
+                                        <svg class="x-logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <path
+                                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                        </svg>
+                                    </div>
+                                    <div class="social-info">
+                                        <h4>X (Twitter)</h4>
+                                        <p>Follow for updates</p>
+                                    </div>
+                                </a>
+                                <a href="https://t.me/SwarmSightOfficial" target="_blank"
+                                    class="social-card perspective-card">
+                                    <div class="social-icon"><i class="fab fa-telegram"></i></div>
+                                    <div class="social-info">
+                                        <h4>Telegram</h4>
+                                        <p>Join our community</p>
+                                    </div>
+                                </a>
+                                <a href="https://discord.gg/swarmsight" target="_blank"
+                                    class="social-card perspective-card">
+                                    <div class="social-icon"><i class="fab fa-discord"></i></div>
+                                    <div class="social-info">
+                                        <h4>Discord</h4>
+                                        <p>Join the discussion</p>
+                                    </div>
+                                </a>
+                                <a href="https://github.com/swarmsight/SwarmSight" target="_blank"
+                                    class="social-card perspective-card">
+                                    <div class="social-icon"><i class="fab fa-github"></i></div>
+                                    <div class="social-info">
+                                        <h4>GitHub</h4>
+                                        <p>Open source code</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div style="margin-top: 2rem; padding: 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+        <h3>Expected Behavior by Screen Size:</h3>
+        <ul>
+            <li><strong>Extra Large (1400px+):</strong> 4 columns, larger spacing, enhanced typography</li>
+            <li><strong>Large Desktop (1200-1399px):</strong> 4 columns, optimized spacing</li>
+            <li><strong>Medium Desktop (1024-1199px):</strong> 4 columns, compact layout</li>
+            <li><strong>Small Desktop/Large Tablet (768-1023px):</strong> 2 columns, balanced layout</li>
+            <li><strong>Small Tablet (640-767px):</strong> 2 columns, reduced spacing</li>
+            <li><strong>Large Mobile (480-639px):</strong> 1 column, horizontal layout</li>
+            <li><strong>Small Mobile (320-479px):</strong> 1 column, stacked layout</li>
+            <li><strong>Extra Small (below 320px):</strong> 1 column, minimal spacing</li>
+        </ul>
+
+        <h3>Additional Features:</h3>
+        <ul>
+            <li><strong>Landscape Mobile:</strong> 2 columns on landscape orientation</li>
+            <li><strong>Touch Devices:</strong> Enhanced tap targets and feedback</li>
+            <li><strong>High DPI:</strong> Optimized borders and effects</li>
+            <li><strong>Accessibility:</strong> Improved focus states and contrast</li>
+            <li><strong>Performance:</strong> Reduced animations on low-powered devices</li>
+        </ul>
+    </div>
+
+    <script>
+        // Display current viewport size
+        function updateViewportInfo() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            let breakpoint = '';
+            if (width >= 1400) breakpoint = 'Extra Large (1400px+)';
+            else if (width >= 1200) breakpoint = 'Large Desktop (1200-1399px)';
+            else if (width >= 1024) breakpoint = 'Medium Desktop (1024-1199px)';
+            else if (width >= 768) breakpoint = 'Small Desktop/Large Tablet (768-1023px)';
+            else if (width >= 640) breakpoint = 'Small Tablet (640-767px)';
+            else if (width >= 480) breakpoint = 'Large Mobile (480-639px)';
+            else if (width >= 320) breakpoint = 'Small Mobile (320-479px)';
+            else breakpoint = 'Extra Small (below 320px)';
+
+            const orientation = window.innerHeight > window.innerWidth ? 'Portrait' : 'Landscape';
+
+            const info = document.getElementById('viewport-info') || document.createElement('div');
+            info.id = 'viewport-info';
+            info.style.cssText = 'position: fixed; top: 10px; right: 10px; background: rgba(0,0,0,0.8); color: white; padding: 0.5rem; border-radius: 4px; font-size: 0.8rem; z-index: 9999;';
+            info.innerHTML = `${width}x${height}<br>${breakpoint}<br>${orientation}`;
+
+            if (!document.getElementById('viewport-info')) {
+                document.body.appendChild(info);
+            }
+        }
+
+        updateViewportInfo();
+        window.addEventListener('resize', updateViewportInfo);
+    </script>
+</body>
+
+</html>

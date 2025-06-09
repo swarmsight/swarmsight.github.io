@@ -76,26 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }, 300);
     });
-  }); // Close menu when clicking the × close button
-  navLinks.addEventListener("click", function (e) {
-    // Check if click was on the ::before pseudo-element (close button)
-    // We have to approximate this by checking click position relative to the element
-    if (
-      e.target === this &&
-      e.offsetX > this.offsetWidth - 50 &&
-      e.offsetY < 50
-    ) {
-      navLinks.classList.remove("active");
-      body.style.overflow = "";
-      body.classList.remove("menu-open");
-
-      // Update accessibility attribute
-      mobileMenuButton.setAttribute("aria-expanded", "false");
-
-      const menuIcon = mobileMenuButton.querySelector("i");
-      menuIcon.classList.remove("fa-times");
-      menuIcon.classList.add("fa-bars");
-    }
   });
 
   // Keyboard accessibility
