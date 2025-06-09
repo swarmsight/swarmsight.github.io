@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwarmSight - AI-Powered Swarms for Trustless Web3</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/footer-social.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"> <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/TextPlugin.min.js"></script>
+</head>
+
+<body> <!-- Noise texture overlay -->
+    <div class="noise-overlay"></div> <!-- Navigation -->
+    <nav class="navbar glassmorphism">
+        <div class="container">
+            <div class="navbar-left">
+                <div class="logo">
+                    <img src="assets/images/logo.svg" alt="SwarmSight Logo">
+                    <span class="glow-text">SWARMSIGHT</span>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#roadmap">Roadmap</a>
+                    <a href="#community" class="cta-button">Connect With Us</a>
+                </div>
+                <div class="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav><!-- Hero Section -->
+    <section class="hero parallax-section" data-depth="0.3">
+        <div id="vanta-animation" class="parallax-bg"></div>
+
+        <!-- Floating background elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+
+        <div class="container">
+            <div class="hero-content split-text reveal-element">
+                <span class="badge reveal-element">Swarm Active <span class="highlight">Solana</span></span>
+                <h1 class="glow-text hero-title split-header" data-color-transition>AI-Powered Swarms for Trustless Web3
+                </h1>
+                <p class="hero-description reveal-element">Autonomous agents verifying content, automating actions, and
+                    securing data —
+                    powered by collective
+                    intelligence and built on decentralized networks.</p>
+                <div class="hero-cta reveal-element">
+                    <a href="#community" class="cta-button">
+                        <i class="fas fa-users"></i>
+                        Connect With Us
+                    </a>
+                    <a href="#" class="outline-button">
+                        <i class="fas fa-file-alt"></i>
+                        Read Vision Paper
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image reveal-element">
+                <div class="swarm-animation"></div>
+                <div class="hero-badge">
+                    <div class="pulse-dot"></div>
+                    <span>Swarm Active</span>
+                </div>
+            </div>
+        </div>
+    </section><!-- Intro / About Section -->
+    <section id="about" class="about parallax-section" data-depth="0.2">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="section-header reveal-element">
+                <h2 class="glow-text split-header">About SwarmSight</h2>
+            </div>
+            <div class="intro-content">
+                <div class="about-grid">
+                    <div class="about-text reveal-element">
+                        <div class="movement-banner reveal-element">
+                            <div class="banner-content">
+                                <i class="fas fa-network-wired"></i>
+                                <h3>SwarmSight is not a product. It is a movement.</h3>
+                            </div>
+                        </div>
+
+                        <p class="intro-text">In a world where data is corrupted and trust is fragile, SwarmSight builds
+                            the missing layer of Web3:</p>
+
+                        <div class="gradient-line"></div>
+
+                        <div class="core-values reveal-element">
+                            <div class="value-card">
+                                <i class="fas fa-link-slash"></i>
+                                <h4>Trustless</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-robot"></i>
+                                <h4>Autonomous</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-database"></i>
+                                <h4>Immutable</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-project-diagram"></i>
+                                <h4>Multi-chain</h4>
+                            </div>
+                        </div>
+
+                        <div class="feature-list">
+                            <div class="feature-item enhanced-hover reveal-element">→ Verifiable content</div>
+                            <div class="feature-item enhanced-hover reveal-element">→ Decentralized AI swarms</div>
+                            <div class="feature-item enhanced-hover reveal-element">→ Automated multi-chain agents</div>
+                            <div class="feature-item enhanced-hover reveal-element">→ Immutable data availability</div>
+                        </div>
+
+                        <blockquote class="modern-quote reveal-element">
+                            <p class="movement-text" data-color-transition>SwarmSight is not a product. It is a
+                                movement.</p>
+                            <p class="movement-subtext">A living, intelligent layer of autonomous agents safeguarding
+                                reality across
+                                the decentralized web.</p>
+                        </blockquote>
+                    </div>
+                    <div class="about-visual perspective-card reveal-element">
+                        <div class="network-visualization">
+                            <div class="node primary-node"></div>
+                            <div class="node secondary-node"></div>
+                            <div class="node secondary-node"></div>
+                            <div class="node tertiary-node"></div>
+                            <div class="node tertiary-node"></div>
+                            <div class="node tertiary-node"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Core Features Section -->
+    <section id="features" class="features parallax-section" data-depth="0.15">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="section-header reveal-element">
+                <h2 class="glow-text split-header">Core Features</h2>
+                <p class="features-intro reveal-element">The foundation for a new paradigm of trust and automation in
+                    Web3
+                </p>
+            </div>
+
+            <div class="features-tabs reveal-element">
+                <div class="tab-navigation">
+                    <button class="tab-button active" data-tab="verification">Content Verification</button>
+                    <button class="tab-button" data-tab="agents">Swarm Agents</button>
+                    <button class="tab-button" data-tab="data">Data Availability</button>
+                    <button class="tab-button" data-tab="builder">No-Code Builder</button>
+                </div>
+
+                <div class="tab-content-wrapper">
+                    <div class="tab-content active" id="verification">
+                        <div class="tab-grid">
+                            <div class="tab-visual reveal-element">
+                                <div class="feature-icon-large">🧿</div>
+                            </div>
+                            <div class="tab-description reveal-element">
+                                <h3 class="feature-title">Content Verification</h3>
+                                <p class="feature-description">Trust is the foundation of the web. Our AI-powered agents
+                                    restore it by validating digital content at scale.</p>
+                                <ul class="feature-list-detailed">
+                                    <li>AI-powered agents verify images, text, and video in real-time</li>
+                                    <li>Cryptographic signatures stored on Solana for permanent verification</li>
+                                    <li>Shield communities from deepfakes and manipulated content</li>
+                                    <li>Open API for third-party integrations and custom applications</li>
+                                </ul>
+                                <div class="feature-cta">
+                                    <a href="#" class="outline-button">Verification Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="agents">
+                        <div class="tab-grid">
+                            <div class="tab-visual reveal-element">
+                                <div class="feature-icon-large">🐝</div>
+                                <div class="swarm-visual">
+                                    <div class="agent-node main"></div>
+                                    <div class="agent-node"></div>
+                                    <div class="agent-node"></div>
+                                    <div class="agent-node"></div>
+                                </div>
+                            </div>
+                            <div class="tab-description reveal-element">
+                                <h3 class="feature-title">Swarm Agents</h3>
+                                <p class="feature-description">Autonomous AI agents working together to process,
+                                    validate, and secure data across the blockchain network.</p>
+                                <ul class="feature-list-detailed">
+                                    <li>Self-organizing swarms adapt to network conditions</li>
+                                    <li>Multi-chain support for cross-chain operations</li>
+                                    <li>Auto-scaling based on network demand</li>
+                                    <li>Collaborative problem-solving through consensus</li>
+                                </ul>
+                                <div class="feature-cta">
+                                    <a href="#" class="outline-button">Explore Swarm Tech</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="data">
+                        <div class="tab-grid">
+                            <div class="tab-visual reveal-element">
+                                <div class="feature-icon-large">🕸️</div>
+                                <div class="data-mesh-visual">
+                                    <div class="data-node primary"></div>
+                                    <div class="data-node"></div>
+                                    <div class="data-node"></div>
+                                    <div class="data-node"></div>
+                                </div>
+                            </div>
+                            <div class="tab-description reveal-element">
+                                <h3 class="feature-title">Data Mesh Access</h3>
+                                <p class="feature-description">Decentralized data storage and retrieval system ensuring
+                                    permanent availability and instant access.</p>
+                                <ul class="feature-list-detailed">
+                                    <li>Distributed storage across the network</li>
+                                    <li>Instant data retrieval and verification</li>
+                                    <li>IPFS integration for permanent storage</li>
+                                    <li>Smart caching for high-performance access</li>
+                                </ul>
+                                <div class="feature-cta">
+                                    <a href="#" class="outline-button">Data Architecture</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="builder">
+                        <div class="tab-grid">
+                            <div class="tab-visual reveal-element">
+                                <div class="feature-icon-large">🛠️</div>
+                                <div class="builder-visual">
+                                    <div class="builder-block start">Start</div>
+                                    <div class="builder-arrow"></div>
+                                    <div class="builder-block process">Process</div>
+                                    <div class="builder-arrow"></div>
+                                    <div class="builder-block end">Deploy</div>
+                                </div>
+                            </div>
+                            <div class="tab-description reveal-element">
+                                <h3 class="feature-title">No-Code Agent Builder</h3>
+                                <p class="feature-description">Create and deploy custom swarm agents without writing
+                                    code. Visual tools for everyone.</p>
+                                <ul class="feature-list-detailed">
+                                    <li>Drag-and-drop agent creation</li>
+                                    <li>Pre-built templates and components</li>
+                                    <li>Visual flow programming</li>
+                                    <li>One-click deployment to the network</li>
+                                </ul>
+                                <div class="feature-cta">
+                                    <a href="#" class="outline-button">Try Builder Beta</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-description">
+                    <h3 class="feature-title">Swarm Agents <span class="subheading">Agent Automation
+                            Layer</span></h3>
+                    <p class="feature-description">Unleash the power of autonomous agents that work together
+                        in swarms to execute complex operations across chains.</p>
+                    <ul class="feature-list-detailed">
+                        <li>Deploy autonomous agents ("swarms") without writing code</li>
+                        <li>Automate complex multi-chain workflows with ease</li>
+                        <li>Trigger trades, governance actions, token bridging, and more</li>
+                        <li>Set conditions, thresholds, and emergent behaviors</li>
+                    </ul>
+                    <div class="feature-cta">
+                        <a href="#" class="outline-button">Explore Agent Templates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="data">
+            <div class="tab-grid">
+                <div class="tab-visual">
+                    <div class="feature-icon-large">🕸️</div>
+                </div>
+                <div class="tab-description">
+                    <h3 class="feature-title">Decentralized Data Availability</h3>
+                    <p class="feature-description">A resilient, immutable foundation for storing
+                        verification records and agent history across the decentralized web.</p>
+                    <ul class="feature-list-detailed">
+                        <li>Decentralized data mesh ensures long-term storage and traceability</li>
+                        <li>Seamless interoperability with Arweave, Filecoin, and IPFS</li>
+                        <li>Public query interface for all content verifications and agent activity</li>
+                        <li>Cryptographic guarantees for data integrity and authenticity</li>
+                    </ul>
+                    <div class="feature-cta">
+                        <a href="#" class="outline-button">View Data Explorer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="builder">
+            <div class="tab-grid">
+                <div class="tab-visual">
+                    <div class="feature-icon-large">🛠️</div>
+                </div>
+                <div class="tab-description">
+                    <h3 class="feature-title">No-Code Builder</h3>
+                    <p class="feature-description">Empower anyone to create and deploy autonomous agents
+                        without technical expertise.</p>
+                    <ul class="feature-list-detailed">
+                        <li>Intuitive drag-and-drop interface to design complex agent flows</li>
+                        <li>Accessible to both developers and non-technical users alike</li>
+                        <li>Launch agents directly from the SwarmSight Dashboard</li>
+                        <li>Templates for common use-cases to get started quickly</li>
+                    </ul>
+                    <div class="feature-cta">
+                        <a href="#" class="outline-button">Request Builder Access</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <!-- Mobile feature cards with reveal animations -->
+        <div class="feature-grid mobile-only">
+            <div class="feature-card perspective-card reveal-element">
+                <div class="feature-icon">🧿</div>
+                <h3>Content Verification</h3>
+                <ul>
+                    <li>AI-powered agents verify images, text, and video</li>
+                    <li>Verifiable signatures stored on Solana</li>
+                    <li>Protect communities from deepfakes and manipulated content</li>
+                </ul>
+            </div>
+            <div class="feature-card perspective-card reveal-element">
+                <div class="feature-icon">🐝</div>
+                <h3>Swarm Agents</h3>
+                <p class="subheading">Agent Automation Layer</p>
+                <ul>
+                    <li>Users can deploy autonomous agents ("swarms") without writing code</li>
+                    <li>Automate complex multi-chain workflows</li>
+                    <li>Trigger trades, governance actions, token bridging, and more</li>
+                </ul>
+            </div>
+            <div class="feature-card perspective-card reveal-element">
+                <div class="feature-icon">🕸️</div>
+                <h3>Decentralized Data</h3>
+                <ul>
+                    <li>A decentralized data mesh ensures long-term storage and traceability</li>
+                    <li>Interoperable with Arweave, Filecoin, and IPFS</li>
+                    <li>Anyone can query past content verifications and agent activity</li>
+                </ul>
+            </div>
+            <div class="feature-card perspective-card reveal-element">
+                <div class="feature-icon">🛠️</div>
+                <h3>No-Code Builder</h3>
+                <ul>
+                    <li>Drag-and-drop interface to design agent flows</li>
+                    <li>Accessible to both developers and non-technical users</li>
+                    <li>Launch agents directly from the SwarmSight Dashboard</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </section> <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="glow-text">How It Works</h2>
+                <p class="process-intro">A seamless ecosystem of trust, verification and autonomous action</p>
+            </div>
+
+            <div class="process-diagram">
+                <div class="process-line"></div>
+                <div class="process-steps">
+                    <div class="process-step" data-index="0">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h4>Content Verification</h4>
+                            <p>Users upload or reference digital content → SwarmSight's AI verification network analyzes
+                                the content → Cryptographically signed proof is stored on-chain with a permanent record
+                                of authenticity.</p>
+                            <div class="step-icon">
+                                <i class="fas fa-shield-check"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-index="1">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h4>Agent Deployment & Execution</h4>
+                            <p>Users create or deploy autonomous agents through our intuitive interface → Agents monitor
+                                blockchains and external data sources → Swarms intelligently execute complex workflows
+                                without further human intervention.</p>
+                            <div class="step-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-index="2">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h4>Decentralized Storage & Access</h4>
+                            <p>All verified data and agent activity is permanently recorded in a decentralized data mesh
+                                → Complete transparency allows anyone to query, verify, and build upon these immutable
+                                records.</p>
+                            <div class="step-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-callout">
+                <div class="callout-content">
+                    <h3>Ready to experience SwarmSight?</h3>
+                    <p>Join our early adopters program and be among the first to leverage the power of autonomous
+                        swarms.</p>
+                </div>
+                <div class="callout-action">
+                    <a href="#community" class="cta-button">Connect With Us</a>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap parallax-section" data-depth="0.1">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="section-header reveal-element">
+                <h2 class="glow-text split-header">Evolution Timeline</h2>
+                <p class="roadmap-intro reveal-element">Our strategic path to building the swarm intelligence network
+                </p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item active reveal-element" data-phase="current">
+                    <div class="timeline-marker">
+                        <span class="date">Q3 2025</span>
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="timeline-content perspective-card">
+                        <h3>Foundation Phase</h3>
+                        <div class="timeline-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>MVP launch of content verification module</li>
+                            <li>Deployment of first SwarmSight agent prototypes</li>
+                            <li>Community access to verification explorer</li>
+                            <li>Initial testnet integration with Solana</li>
+                        </ul>
+                        <div class="progress-badge">In Progress</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-element" data-phase="upcoming">
+                    <div class="timeline-marker">
+                        <span class="date">Q4 2025</span>
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="timeline-content perspective-card">
+                        <h3>Expansion Phase</h3>
+                        <div class="timeline-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>No-code agent builder beta release</li>
+                            <li>Decentralized data mesh integration</li>
+                            <li>First cross-chain agent swarm deployed</li>
+                            <li>Strategic partnerships with key Web3 protocols</li>
+                        </ul>
+                        <div class="progress-badge upcoming">Coming Soon</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-element" data-phase="future">
+                    <div class="timeline-marker">
+                        <span class="date">Q1 2026</span>
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="timeline-content perspective-card">
+                        <h3>Ecosystem Phase</h3>
+                        <div class="timeline-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Full platform public release with mainnet launch</li>
+                            <li>Developer SDK and comprehensive API documentation</li>
+                            <li>Advanced DAO integration modules and governance tools</li>
+                            <li>Enterprise solutions for media verification</li>
+                        </ul>
+                        <div class="progress-badge future">Planned</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-element" data-phase="vision">
+                    <div class="timeline-marker">
+                        <span class="date">Q3 2026</span>
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="timeline-content perspective-card">
+                        <h3>Network Evolution</h3>
+                        <div class="timeline-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Autonomous swarm intelligence network</li>
+                            <li>Self-governing agent communities</li>
+                            <li>Universal content verification standard</li>
+                            <li>Cross-chain autonomous operations platform</li>
+                        </ul>
+                        <div class="progress-badge vision">Vision</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About SwarmSight Extended -->
+    <section class="about-extended">
+        <div class="container">
+            <div class="section-header">
+                <h2>About SwarmSight</h2>
+            </div>
+            <div class="about-content">
+                <p>SwarmSight is an autonomous layer of trust and intelligence for the decentralized web.</p>
+                <p>We combine the power of AI, blockchain, and collective agent systems to bring verification and
+                    automation to the next evolution of Web3.</p>
+                <p>Our mission is simple: to empower users to prove reality and automate action, in a world that demands
+                    truth.</p>
+            </div>
+        </div>
+    </section> <!-- Community / CTA Section -->
+    <section id="community" class="community parallax-section" data-depth="0.25">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="section-header reveal-element">
+                <h2 class="glow-text split-header">Connect With Us</h2>
+                <p class="community-intro reveal-element">Become part of the collective intelligence network</p>
+            </div>
+            <div class="community-grid">
+                <div class="community-links reveal-element" style="margin: 0 auto; max-width: 800px;">
+                    <h3 class="gradient-text">Connect With Us</h3>
+                    <p>Join our growing community across these platforms:</p>
+                    <div class="social-grid">
+                        <a href="#" class="social-card perspective-card">
+                            <div class="social-icon"><i class="fab fa-twitter"></i></div>
+                            <div class="social-info">
+                                <h4>Twitter</h4>
+                                <p>Follow for updates</p>
+                            </div>
+                        </a>
+                        <a href="#" class="social-card perspective-card">
+                            <div class="social-icon"><i class="fab fa-telegram"></i></div>
+                            <div class="social-info">
+                                <h4>Telegram</h4>
+                                <p>Join our community</p>
+                            </div>
+                        </a>
+                        <a href="#" class="social-card perspective-card coming-soon">
+                            <div class="social-icon"><i class="fab fa-discord"></i></div>
+                            <div class="social-info">
+                                <h4>Discord</h4>
+                                <p>Coming soon</p>
+                            </div>
+                        </a>
+                        <a href="#" class="social-card perspective-card coming-soon">
+                            <div class="social-icon"><i class="fab fa-github"></i></div>
+                            <div class="social-info">
+                                <h4>GitHub</h4>
+                                <p>Coming soon</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="community-manifesto reveal-element">
+                <div class="manifesto-badge">OUR MISSION</div>
+                <div class="manifesto-text">
+                    <span class="typewriter-text gradient-text">Observe. Deploy. Evolve.</span>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Footer -->
+    <footer class="site-footer parallax-section" data-depth="0.05">
+        <div class="footer-waves">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none"
+                class="parallax-bg">
+                <path fill="rgba(242, 213, 2, 0.05)" fill-opacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand reveal-element">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="SwarmSight Logo">
+                        <span class="glow-text">SWARMSIGHT</span>
+                    </div>
+                    <p>Building the autonomous swarm intelligence layer for Web3.</p>
+                    <p class="copyright">© 2025 SwarmSight. All rights reserved.</p>
+                </div>
+
+                <div class="footer-links reveal-element">
+                    <div class="footer-col">
+                        <h4 class="gradient-text">Product</h4>
+                        <ul>
+                            <li><a href="#features" class="enhanced-hover">Features</a></li>
+                            <li><a href="#roadmap" class="enhanced-hover">Roadmap</a></li>
+                            <li><a href="#" class="disabled">Documentation</a></li>
+                            <li><a href="#" class="disabled">API</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="gradient-text">Company</h4>
+                        <ul>
+                            <li><a href="#about" class="enhanced-hover">About</a></li>
+                            <li><a href="#" class="disabled">Blog</a></li>
+                            <li><a href="#" class="disabled">Careers</a></li>
+                            <li><a href="#community" class="enhanced-hover">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="gradient-text">Legal</h4>
+                        <ul>
+                            <li><a href="#" class="enhanced-hover">Privacy Policy</a></li>
+                            <li><a href="#" class="enhanced-hover">Terms of Service</a></li>
+                            <li><a href="#" class="enhanced-hover">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom reveal-element">
+                <p>Built on <span class="tech-badge">Solana</span> • Powered by collective intelligence</p>
+                <div class="footer-badge">
+                    <div class="pulse-dot"></div>
+                    <span>Network Active</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/features.js"></script>
+    <script src="js/performance.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,461 @@
+/* filepath: c:\Users\Admin\Desktop\memora\swarmsight web\css\mobile.css */
+/*
+ * SwarmSight Mobile Styles
+ * 
+ * This file contains all mobile-specific styles and optimizations.
+ * Covers breakpoints: 768px and below, with specific optimizations for 480px and below.
+ * 
+ * Features:
+ * - Mobile navigation with hamburger menu
+ * - Performance optimizations for mobile devices
+ * - Touch-friendly interactions
+ * - Reduced animations for better performance
+ * - Mobile-first responsive design
+ */
+
+/* Mobile Styles - Mobile-first approach for devices up to 768px */
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    /* Mobile Hero Section */
+    .hero {
+        padding-top: 140px;
+        padding-bottom: 80px;
+        min-height: 80vh;
+    }
+
+    .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-content {
+        order: 2;
+        align-items: center;
+    }
+
+    .hero-image {
+        order: 1;
+        margin: 0 auto;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .cta-button,
+    .outline-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Mobile Navigation Menu */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 5, 5, 0.98);
+        backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.4s var(--easing-standard);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s var(--easing-standard);
+    }
+
+    .nav-links.active a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-links.active a:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .nav-links.active a:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .nav-links.active a:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .nav-links.active a:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    .nav-links.active a:nth-child(5) {
+        transition-delay: 0.5s;
+    }
+
+    .mobile-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        background: rgba(247, 233, 77, 0.1);
+        transition: all 0.3s var(--easing-standard);
+        z-index: 1001;
+    }
+
+    .mobile-menu-button:hover {
+        background: rgba(247, 233, 77, 0.2);
+        transform: scale(1.05);
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    /* Mobile Feature Grid */
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Mobile About Section */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Mobile Timeline */
+    .timeline:before {
+        left: 20px;
+    }
+
+    .timeline-marker {
+        left: 20px;
+    }
+
+    .timeline-content {
+        margin-left: 50px;
+        padding: 20px;
+    }
+
+    .timeline-content:hover {
+        transform: none;
+    }
+
+    .timeline-icon {
+        display: none;
+    }
+
+    /* Mobile Process Steps */
+    .process-step {
+        padding: 15px;
+    }
+
+    .process-line {
+        display: none;
+    }
+
+    .process-callout {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .callout-action {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .step-icon {
+        position: static;
+        margin-top: 15px;
+    }
+
+    /* Mobile Features Tabs */
+    .tab-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .tab-navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tab-button {
+        margin-bottom: 10px;
+    }
+
+    .features-tabs {
+        padding: 0;
+    }
+
+    .tab-navigation {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .tab-button {
+        flex: 1 1 calc(50% - 5px);
+        min-width: 140px;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .tab-visual {
+        min-height: 200px;
+    }
+
+    .feature-icon-large {
+        font-size: 36px;
+    }
+
+    .tab-description {
+        text-align: center;
+    }
+
+    .feature-list-detailed {
+        text-align: left;
+    }
+
+    /* Mobile Community Grid */
+    .community-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Mobile Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-badge {
+        margin-top: 20px;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+    }
+
+    /* Mobile Performance Optimizations */
+    .perspective-card:hover {
+        transform: none !important;
+    }
+
+    .timeline-content:hover {
+        transform: none;
+    }
+
+    .process-step {
+        padding: 15px;
+    }
+
+    .process-line {
+        display: none;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Optimize animations for mobile performance */
+    .floating-element {
+        display: none;
+    }
+
+    #vanta-animation {
+        opacity: 0.5;
+    }
+
+    .parallax-bg {
+        transform: none !important;
+    }
+
+    /* Reduce the impact of heavy animations */
+    .glow-text {
+        text-shadow: 0 0 5px rgba(247, 233, 77, 0.2);
+    }
+
+    /* Mobile-optimized animations */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.02);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    /* Mobile Core Values */
+    .core-values {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .value-card {
+        padding: 20px;
+    }
+
+    .value-card i {
+        font-size: 24px;
+    }
+
+    .value-card h4 {
+        font-size: 16px;
+    }
+
+    .movement-banner {
+        padding: 20px;
+    }
+
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .banner-content h3 {
+        font-size: 20px;
+    }
+}
+
+/* Extra Small Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .section-header h2 {
+        font-size: 28px;
+    }
+
+    .badge {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .cta-button,
+    .outline-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .modern-quote {
+        padding: 15px;
+    }
+
+    .timeline-content {
+        margin-left: 40px;
+    }
+
+    .timeline:before {
+        left: 15px;
+    }
+
+    .timeline-marker {
+        left: 15px;
+    }
+
+    .date {
+        font-size: 12px;
+    }
+
+    .process-step .step-number {
+        font-size: 28px;
+    }
+
+    /* Further optimize for very small screens */
+    .gradient-text {
+        background: var(--primary-color);
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: none;
+    }
+
+    /* Disable some complex animations for better performance */
+    .scroll-indicator {
+        height: 2px;
+    }
+
+    .split-header .char {
+        display: inline;
+        transform: none;
+        opacity: 1;
+    }
+
+    /* Core Values Section */
+    .core-values {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+/* Footer Mobile Styles */
+@media (max-width: 576px) {
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+}
