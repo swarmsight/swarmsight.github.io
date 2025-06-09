@@ -319,11 +319,11 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     z-index: 1000;
-    transition: all 0.4s ease;
+    transition: all 0.4s var(--easing-standard);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -335,15 +335,23 @@ a {
 }
 
 .navbar.scrolled {
-    padding: 10px 0;
+    padding: 12px 0;
     background-color: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.navbar.navbar-hidden {
+    transform: translateY(-100%);
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    flex-direction: row;
 }
 
 .navbar-left {
@@ -355,6 +363,7 @@ a {
     display: flex;
     align-items: center;
     gap: 30px;
+    justify-content: flex-end;
 }
 
 .logo {
@@ -425,6 +434,14 @@ a {
 .nav-links a:not(.cta-button):hover {
     color: var(--primary-color);
     transform: translateY(-2px);
+}
+
+.nav-links a.active-link {
+    color: var(--primary-color);
+}
+
+.nav-links a.active-link::after {
+    width: 100%;
 }
 
 .nav-links .cta-button {
@@ -555,6 +572,9 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
 }
 
 .swarm-animation {
@@ -566,18 +586,24 @@ a {
     background: rgba(13, 13, 13, 0.4);
     border-radius: var(--border-radius-lg);
     backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(247, 233, 77, 0.1);
 }
 
-.swarm-particle {
+#swarm-canvas {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    opacity: 0.6;
-    filter: blur(1px);
-    box-shadow: 0 0 8px rgba(247, 233, 77, 0.4);
-    transition: transform 0.3s var(--easing-standard);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+background: var(--primary-color);
+border-radius: 50%;
+opacity: 0.6;
+filter: blur(1px);
+box-shadow: 0 0 8px rgba(247, 233, 77, 0.4);
+transition: transform 0.3s var(--easing-standard);
 }
 
 .swarm-particle::after {
@@ -1968,4 +1994,21 @@ p {
         flex-direction: column;
         gap: 0.5rem;
     }
+}
+
+/* Keyboard focus styles */
+:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.navbar a:focus-visible,
+.navbar button:focus-visible {
+    outline-color: var(--primary-color);
+}
+
+/* Ensure focus styles work properly in mobile menu */
+.nav-links a:focus {
+    color: var(--primary-color);
 }
