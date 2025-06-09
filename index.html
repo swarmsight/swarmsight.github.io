@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwarmSight - AI-Powered Swarms for Trustless Web3</title>
-    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/images/logo.png" type="image/svg+xml">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/footer-social.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/enhanced-timeline.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -30,7 +30,7 @@
         <div class="container">
             <div class="navbar-left">
                 <a href="/" class="logo" aria-label="SwarmSight Home">
-                    <img src="assets/images/logo.svg" alt="SwarmSight Logo">
+                    <img src="assets/images/logo.png" alt="SwarmSight Logo">
                     <span class="glow-text">SWARMSIGHT</span>
                 </a>
             </div>
@@ -71,22 +71,6 @@
                     Autonomous agents verifying content, automating actions, and securing data —
                     powered by collective intelligence and built on decentralized networks.
                 </p>
-
-                <div class="hero-stats reveal-element">
-                    <div class="stat-item">
-                        <span class="stat-value">10K+</span>
-                        <span class="stat-label">Active Agents</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">5M+</span>
-                        <span class="stat-label">Verifications</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">99.9%</span>
-                        <span class="stat-label">Accuracy</span>
-                    </div>
-                </div>
-
                 <div class="hero-cta reveal-element">
                     <a href="#community" class="cta-button">
                         <i class="fas fa-users"></i>
@@ -476,91 +460,155 @@
             </div>
         </div>
     </section> <!-- Roadmap Section -->
-    <section id="roadmap" class="roadmap parallax-section" data-depth="0.1">
+    <section id="roadmap" class="enhanced-roadmap-section parallax-section" data-depth="0.1">
         <div class="parallax-bg"></div>
         <div class="container">
             <div class="section-header reveal-element">
                 <h2 class="glow-text split-header">Evolution Timeline</h2>
                 <p class="roadmap-intro reveal-element">Our path to decentralized intelligence</p>
             </div>
-            <div class="timeline">
-                <div class="timeline-item active reveal-element" data-phase="current">
-                    <div class="timeline-marker">
-                        <span class="date">Q3 2025</span>
-                        <div class="marker-dot"></div>
-                    </div>
-                    <div class="timeline-content perspective-card">
-                        <h3>Foundation Phase</h3>
-                        <div class="timeline-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>MVP launch of content verification module</li>
-                            <li>Deployment of first SwarmSight agent prototypes</li>
-                            <li>Community access to verification explorer</li>
-                            <li>Initial testnet integration with Solana</li>
-                        </ul>
-                        <div class="progress-badge">In Progress</div>
-                    </div>
-                </div>
 
-                <div class="timeline-item reveal-element" data-phase="upcoming">
-                    <div class="timeline-marker">
-                        <span class="date">Q4 2025</span>
-                        <div class="marker-dot"></div>
-                    </div>
-                    <div class="timeline-content perspective-card">
-                        <h3>Expansion Phase</h3>
-                        <div class="timeline-icon">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>No-code builder platform</li>
-                            <li>Data mesh deployment</li>
-                            <li>Multi-chain operations</li>
-                            <li>Strategic integrations</li>
-                        </ul>
-                        <div class="progress-badge upcoming">Coming Soon</div>
-                    </div>
+            <!-- Enhanced Timeline Progress Tracker -->
+            <div class="enhanced-timeline-progress-container">
+                <div class="enhanced-timeline-progress-bar">
+                    <div class="enhanced-progress-fill" id="enhancedTimelineProgressFill"></div>
                 </div>
-
-                <div class="timeline-item reveal-element" data-phase="future">
-                    <div class="timeline-marker">
-                        <span class="date">Q1 2026</span>
-                        <div class="marker-dot"></div>
-                    </div>
-                    <div class="timeline-content perspective-card">
-                        <h3>Ecosystem Growth</h3>
-                        <div class="timeline-icon">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                        <ul class="timeline-list">
-                            <li>Enterprise SDK launch</li>
-                            <li>DAO governance tools</li>
-                            <li>Advanced verification suite</li>
-                            <li>AI agent marketplace</li>
-                        </ul>
-                        <div class="progress-badge future">Planned</div>
-                    </div>
+                <div class="enhanced-timeline-dots">
+                    <div class="enhanced-progress-dot active" data-phase="0" data-tooltip="Foundation Phase"></div>
+                    <div class="enhanced-progress-dot" data-phase="1" data-tooltip="Expansion Phase"></div>
+                    <div class="enhanced-progress-dot" data-phase="2" data-tooltip="Ecosystem Growth"></div>
+                    <div class="enhanced-progress-dot" data-phase="3" data-tooltip="Network Evolution"></div>
                 </div>
+            </div>
 
-                <div class="timeline-item reveal-element" data-phase="vision">
-                    <div class="timeline-marker">
-                        <span class="date">Q3 2026</span>
-                        <div class="marker-dot"></div>
-                    </div>
-                    <div class="timeline-content perspective-card">
-                        <h3>Network Evolution</h3>
-                        <div class="timeline-icon">
-                            <i class="fas fa-brain"></i>
+            <div class="enhanced-timeline-wrapper" data-enhanced="true" data-scroll-effects="true" role="region"
+                aria-label="SwarmSight Development Timeline">
+                <div class="enhanced-timeline-container" id="enhancedTimelineContainer">
+                    <div class="enhanced-timeline-track"></div>
+
+                    <div class="enhanced-timeline-item active" id="enhancedTimelineItem0" data-phase="current"
+                        data-index="0">
+                        <div class="enhanced-timeline-marker">
+                            <span class="enhanced-date">Q3 2025</span>
+                            <div class="enhanced-marker-dot">
+                                <div class="enhanced-marker-pulse"></div>
+                                <div class="enhanced-marker-core"></div>
+                            </div>
                         </div>
-                        <ul class="timeline-list">
-                            <li>Autonomous network intelligence</li>
-                            <li>Self-evolving agent systems</li>
-                            <li>Universal verification protocol</li>
-                            <li>Cross-chain ecosystem hub</li>
-                        </ul>
-                        <div class="progress-badge vision">Vision</div>
+                        <div class="enhanced-timeline-content enhanced-perspective-card">
+                            <div class="enhanced-content-header">
+                                <h3>Foundation Phase</h3>
+                                <div class="enhanced-timeline-icon">
+                                    <i class="fas fa-rocket"></i>
+                                    <div class="enhanced-icon-glow"></div>
+                                </div>
+                            </div>
+                            <ul class="enhanced-timeline-list">
+                                <li class="enhanced-list-item" data-delay="0">MVP launch of content verification module
+                                </li>
+                                <li class="enhanced-list-item" data-delay="100">Deployment of first SwarmSight agent
+                                    prototypes</li>
+                                <li class="enhanced-list-item" data-delay="200">Community access to verification
+                                    explorer</li>
+                                <li class="enhanced-list-item" data-delay="300">Initial testnet integration with Solana
+                                </li>
+                            </ul>
+                            <div class="enhanced-progress-badge current">
+                                <span class="enhanced-badge-pulse"></span>
+                                In Progress
+                            </div>
+                            <div class="enhanced-card-highlight"></div>
+                        </div>
+                    </div>
+
+                    <div class="enhanced-timeline-item" id="enhancedTimelineItem1" data-phase="upcoming" data-index="1">
+                        <div class="enhanced-timeline-marker">
+                            <span class="enhanced-date">Q4 2025</span>
+                            <div class="enhanced-marker-dot">
+                                <div class="enhanced-marker-pulse"></div>
+                                <div class="enhanced-marker-core"></div>
+                            </div>
+                        </div>
+                        <div class="enhanced-timeline-content enhanced-perspective-card">
+                            <div class="enhanced-content-header">
+                                <h3>Expansion Phase</h3>
+                                <div class="enhanced-timeline-icon">
+                                    <i class="fas fa-layer-group"></i>
+                                    <div class="enhanced-icon-glow"></div>
+                                </div>
+                            </div>
+                            <ul class="enhanced-timeline-list">
+                                <li class="enhanced-list-item" data-delay="0">No-code builder platform</li>
+                                <li class="enhanced-list-item" data-delay="100">Data mesh deployment</li>
+                                <li class="enhanced-list-item" data-delay="200">Multi-chain operations</li>
+                                <li class="enhanced-list-item" data-delay="300">Strategic integrations</li>
+                            </ul>
+                            <div class="enhanced-progress-badge upcoming">
+                                <span class="enhanced-badge-pulse"></span>
+                                Coming Soon
+                            </div>
+                            <div class="enhanced-card-highlight"></div>
+                        </div>
+                    </div>
+
+                    <div class="enhanced-timeline-item" id="enhancedTimelineItem2" data-phase="future" data-index="2">
+                        <div class="enhanced-timeline-marker">
+                            <span class="enhanced-date">Q1 2026</span>
+                            <div class="enhanced-marker-dot">
+                                <div class="enhanced-marker-pulse"></div>
+                                <div class="enhanced-marker-core"></div>
+                            </div>
+                        </div>
+                        <div class="enhanced-timeline-content enhanced-perspective-card">
+                            <div class="enhanced-content-header">
+                                <h3>Ecosystem Growth</h3>
+                                <div class="enhanced-timeline-icon">
+                                    <i class="fas fa-globe-americas"></i>
+                                    <div class="enhanced-icon-glow"></div>
+                                </div>
+                            </div>
+                            <ul class="enhanced-timeline-list">
+                                <li class="enhanced-list-item" data-delay="0">Enterprise SDK launch</li>
+                                <li class="enhanced-list-item" data-delay="100">DAO governance tools</li>
+                                <li class="enhanced-list-item" data-delay="200">Advanced verification suite</li>
+                                <li class="enhanced-list-item" data-delay="300">AI agent marketplace</li>
+                            </ul>
+                            <div class="enhanced-progress-badge future">
+                                <span class="enhanced-badge-pulse"></span>
+                                Planned
+                            </div>
+                            <div class="enhanced-card-highlight"></div>
+                        </div>
+                    </div>
+
+                    <div class="enhanced-timeline-item" id="enhancedTimelineItem3" data-phase="vision" data-index="3">
+                        <div class="enhanced-timeline-marker">
+                            <span class="enhanced-date">Q3 2026</span>
+                            <div class="enhanced-marker-dot">
+                                <div class="enhanced-marker-pulse"></div>
+                                <div class="enhanced-marker-core"></div>
+                            </div>
+                        </div>
+                        <div class="enhanced-timeline-content enhanced-perspective-card">
+                            <div class="enhanced-content-header">
+                                <h3>Network Evolution</h3>
+                                <div class="enhanced-timeline-icon">
+                                    <i class="fas fa-brain"></i>
+                                    <div class="enhanced-icon-glow"></div>
+                                </div>
+                            </div>
+                            <ul class="enhanced-timeline-list">
+                                <li class="enhanced-list-item" data-delay="0">Autonomous network intelligence</li>
+                                <li class="enhanced-list-item" data-delay="100">Self-evolving agent systems</li>
+                                <li class="enhanced-list-item" data-delay="200">Universal verification protocol</li>
+                                <li class="enhanced-list-item" data-delay="300">Cross-chain ecosystem hub</li>
+                            </ul>
+                            <div class="enhanced-progress-badge vision">
+                                <span class="enhanced-badge-pulse"></span>
+                                Vision
+                            </div>
+                            <div class="enhanced-card-highlight"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -578,33 +626,35 @@
 
             <div class="community-grid">
                 <div class="community-links reveal-element">
-                    <div class="social-grid horizontal">
-                        <a href="https://twitter.com/SwarmSight" target="_blank" class="social-card perspective-card"
-                            data-tooltip="Follow us on Twitter">
-                            <div class="social-icon"><i class="fab fa-twitter"></i></div>
+                    <div class="social-grid horizontal"> <a href="https://x.com/swarmsight" target="_blank"
+                            class="social-card perspective-card">
+                            <div class="social-icon">
+                                <svg class="x-logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg>
+                            </div>
                             <div class="social-info">
-                                <h4>Twitter</h4>
+                                <h4>X (Twitter)</h4>
                                 <p>Follow for updates</p>
                             </div>
                         </a>
-                        <a href="https://t.me/SwarmSightOfficial" target="_blank" class="social-card perspective-card"
-                            data-tooltip="Join our Telegram community">
+                        <a href="https://t.me/SwarmSightOfficial" target="_blank" class="social-card perspective-card">
                             <div class="social-icon"><i class="fab fa-telegram"></i></div>
                             <div class="social-info">
                                 <h4>Telegram</h4>
                                 <p>Join our community</p>
                             </div>
                         </a>
-                        <a href="https://discord.gg/swarmsight" target="_blank" class="social-card perspective-card"
-                            data-tooltip="Join our Discord server">
+                        <a href="https://discord.gg/swarmsight" target="_blank" class="social-card perspective-card">
                             <div class="social-icon"><i class="fab fa-discord"></i></div>
                             <div class="social-info">
                                 <h4>Discord</h4>
                                 <p>Join the discussion</p>
                             </div>
-                        </a>
-                        <a href="https://github.com/SwarmSight" target="_blank" class="social-card perspective-card"
-                            data-tooltip="Explore our code">
+                        </a> <a href="https://github.com/swarmsight/SwarmSight" target="_blank"
+                            class="social-card perspective-card">
                             <div class="social-icon"><i class="fab fa-github"></i></div>
                             <div class="social-info">
                                 <h4>GitHub</h4>
@@ -616,99 +666,28 @@
             </div>
 
         </div>
-    </section><!-- Footer -->
-    <footer class="site-footer parallax-section" data-depth="0.05">
-        <div class="footer-waves">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none"
-                class="parallax-bg">
-                <path fill="rgba(242, 213, 2, 0.05)" fill-opacity="1"
-                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-                </path>
-            </svg>
-        </div>
-
+    </section> <!-- Footer -->
+    <footer class="minimal-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-main">
-                    <!-- Brand Section -->
-                    <div class="footer-brand reveal-element">
-                        <div class="footer-logo">
-                            <img src="assets/images/logo.svg" alt="SwarmSight Logo">
-                            <span class="glow-text">SWARMSIGHT</span>
-                        </div>
-                        <p class="brand-description">Empowering the future with decentralized swarm intelligence.</p>
-                    </div>
-
-                    <!-- Links Grid -->
-                    <div class="footer-links reveal-element">
-                        <div class="footer-col">
-                            <h4 class="gradient-text hover-underline">Platform</h4>
-                            <ul>
-                                <li><a href="#features">Features</a></li>
-                                <li><a href="#roadmap">Roadmap</a></li>
-                                <li><a href="https://docs.swarmsight.io"><i class="fas fa-file-alt"></i>
-                                        Documentation</a>
-                                </li>
-                                <li><a href="https://api.swarmsight.io"><i class="fas fa-dna"></i> API Reference</a>
-                                </li>
-                                <li><a href="https://status.swarmsight.io"><i class="fas fa-signal"></i> System
-                                        Status</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="footer-col">
-                            <h4 class="gradient-text hover-underline">Resources</h4>
-                            <ul>
-                                <li><a href="https://blog.swarmsight.io">Blog</a></li>
-                                <li><a href="https://learn.swarmsight.io">Learning Hub</a></li>
-                                <li><a href="https://swarmsight.io/case-studies">Case Studies</a></li>
-                                <li><a href="https://swarmsight.io/partners">Partners</a></li>
-                                <li><a href="https://swarmsight.io/support">Support</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="footer-col">
-                            <h4 class="gradient-text hover-underline">Company</h4>
-                            <ul>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="https://swarmsight.io/careers">Careers</a></li>
-                                <li><a href="https://swarmsight.io/press">Press Kit</a></li>
-                                <li><a href="#community">Contact</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="footer-col">
-                            <h4 class="gradient-text hover-underline">Legal</h4>
-                            <ul>
-                                <li><a href="https://swarmsight.io/privacy">Privacy Policy</a></li>
-                                <li><a href="https://swarmsight.io/terms">Terms of Service</a></li>
-                                <li><a href="https://swarmsight.io/security">Security</a></li>
-                                <li><a href="https://swarmsight.io/cookies">Cookie Policy</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="footer-brand">
+                    <img src="assets/images/logo.svg" alt="SwarmSight Logo" class="footer-logo">
+                    <span class="footer-brand-text">SWARMSIGHT</span>
                 </div>
 
-                <!-- Bottom Bar -->
-                <div class="footer-bottom reveal-element">
-                    <div class="footer-info">
-                        <div class="footer-badges">
-                            <span class="tech-badge"
-                                data-tooltip="SwarmSight is built using Solana's fast and secure Layer-1 blockchain">
-                                <i class="fas fa-cube"></i>
-                                Built on Solana
-                            </span>
-                            <span class="network-badge"
-                                data-tooltip="All systems operational. Last checked: [auto-update timestamp]">
-                                <i class="fas fa-circle status-icon"></i>
-                                Network Active
-                            </span>
-                        </div>
-                        <div class="copyright">
-                            <p>© 2025 SwarmSight. All rights reserved.</p>
-                        </div>
-                    </div>
+                <div class="footer-status">
+                    <span class="status-badge built-on-solana">
+                        <i class="fas fa-cube"></i>
+                        Built on Solana
+                    </span>
+                    <span class="status-badge network-active">
+                        <i class="fas fa-circle"></i>
+                        Network Active
+                    </span>
+                </div>
+
+                <div class="footer-copyright">
+                    <span>© 2025 SwarmSight. All rights reserved.</span>
                 </div>
             </div>
         </div>
@@ -718,6 +697,7 @@
     <script src="js/features.js"></script>
     <script src="js/performance.js"></script>
     <script src="js/navigation.js"></script>
+    <script src="js/enhanced-timeline.js"></script>
 </body>
 
 </html>

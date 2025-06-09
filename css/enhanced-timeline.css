@@ -1,0 +1,941 @@
+/* ========================================
+   ENHANCED TIMELINE STYLES
+   ======================================== */
+
+/* Performance optimizations for smooth animations */
+* {
+    will-change: auto;
+}
+
+.enhanced-timeline-item,
+.enhanced-timeline-content,
+.enhanced-timeline-marker,
+.enhanced-marker-pulse {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Enhanced Roadmap Section */
+.enhanced-roadmap-section {
+    position: relative;
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.98), rgba(5, 5, 5, 0.99));
+    overflow: hidden;
+}
+
+.enhanced-roadmap-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, rgba(247, 233, 77, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(247, 233, 77, 0.05) 0%, transparent 50%);
+    z-index: 0;
+}
+
+/* Enhanced Timeline Progress Container */
+.enhanced-timeline-progress-container {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.enhanced-timeline-progress-bar {
+    position: relative;
+    height: 4px;
+    background: rgba(247, 233, 77, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.enhanced-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color) 0%, rgba(247, 233, 77, 0.8) 100%);
+    border-radius: 2px;
+    width: 25%;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.enhanced-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: enhancedProgressShimmer 2s infinite;
+}
+
+.enhanced-timeline-dots {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    right: 0;
+}
+
+.enhanced-progress-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(247, 233, 77, 0.2);
+    border: 2px solid rgba(247, 233, 77, 0.3);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+}
+
+.enhanced-progress-dot.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(247, 233, 77, 0.5);
+    transform: scale(1.2);
+}
+
+.enhanced-progress-dot.completed {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.enhanced-progress-dot::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+    pointer-events: none;
+    border: 1px solid rgba(247, 233, 77, 0.2);
+}
+
+.enhanced-progress-dot:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: 35px;
+}
+
+/* Enhanced Timeline Wrapper */
+.enhanced-timeline-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.enhanced-timeline-wrapper.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.enhanced-timeline-track {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom,
+            var(--primary-color) 0%,
+            rgba(247, 233, 77, 0.6) 50%,
+            rgba(247, 233, 77, 0.2) 100%);
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.enhanced-timeline-track::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2px;
+    right: -2px;
+    bottom: 0;
+    background: rgba(247, 233, 77, 0.1);
+    border-radius: 4px;
+    z-index: -1;
+}
+
+/* Enhanced Timeline Items - Alternating Layout */
+.enhanced-timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin: 4rem 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+    contain: layout style paint;
+    will-change: transform, opacity;
+}
+
+/* Even items (0, 2, 4...) - Right side */
+.enhanced-timeline-item:nth-child(even) {
+    flex-direction: row;
+}
+
+/* Odd items (1, 3, 5...) - Left side */
+.enhanced-timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.enhanced-timeline-item:not(.enhanced-in-view) {
+    transform: translateZ(0);
+    /* Force GPU acceleration */
+}
+
+.enhanced-timeline-item.enhanced-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.enhanced-timeline-item.enhanced-highlight {
+    transform: translateY(-10px);
+}
+
+/* Enhanced Timeline Marker - Alternating Layout */
+.enhanced-timeline-marker {
+    flex: 0 0 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+
+/* Right side items - marker on left */
+.enhanced-timeline-item:nth-child(even) .enhanced-timeline-marker {
+    text-align: right;
+    padding-right: 2rem;
+    align-items: flex-end;
+}
+
+/* Left side items - marker on right */
+.enhanced-timeline-item:nth-child(odd) .enhanced-timeline-marker {
+    text-align: left;
+    padding-left: 2rem;
+    align-items: flex-start;
+}
+
+.enhanced-date {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(247, 233, 77, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.enhanced-marker-dot {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 3;
+}
+
+/* Right side items - dot positioned to connect with center track */
+.enhanced-timeline-item:nth-child(even) .enhanced-marker-dot {
+    margin-left: auto;
+    margin-right: -12px;
+}
+
+/* Left side items - dot positioned to connect with center track */
+.enhanced-timeline-item:nth-child(odd) .enhanced-marker-dot {
+    margin-right: auto;
+    margin-left: -12px;
+}
+
+.enhanced-marker-core {
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(247, 233, 77, 0.4);
+}
+
+.enhanced-marker-pulse {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border: 2px solid rgba(247, 233, 77, 0.3);
+    border-radius: 50%;
+    animation: enhancedMarkerPulse 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Enhanced Timeline Content - Alternating Layout */
+.enhanced-timeline-content {
+    flex: 1;
+    max-width: 450px;
+    background: rgba(15, 15, 15, 0.8);
+    border-radius: 16px;
+    padding: 2.5rem;
+    border: 1px solid rgba(247, 233, 77, 0.15);
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+/* Right side content positioning */
+.enhanced-timeline-item:nth-child(even) .enhanced-timeline-content {
+    margin-left: 2rem;
+}
+
+/* Left side content positioning */
+.enhanced-timeline-item:nth-child(odd) .enhanced-timeline-content {
+    margin-right: 2rem;
+}
+
+.enhanced-timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(247, 233, 77, 0.05) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.enhanced-timeline-content:hover {
+    transform: translateY(-8px);
+    border-color: rgba(247, 233, 77, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(247, 233, 77, 0.1);
+}
+
+.enhanced-timeline-content:hover::before {
+    opacity: 1;
+}
+
+.enhanced-content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.enhanced-content-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.enhanced-timeline-icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: rgba(247, 233, 77, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(247, 233, 77, 0.2);
+    transition: all 0.4s ease;
+}
+
+.enhanced-timeline-icon i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.enhanced-icon-glow {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: conic-gradient(from 0deg, var(--primary-color), transparent, var(--primary-color));
+    border-radius: 50%;
+    opacity: 0;
+    animation: enhancedIconRotate 4s linear infinite;
+    z-index: 1;
+}
+
+.enhanced-timeline-content:hover .enhanced-timeline-icon {
+    transform: scale(1.1);
+    background: rgba(247, 233, 77, 0.2);
+    border-color: rgba(247, 233, 77, 0.4);
+}
+
+.enhanced-timeline-content:hover .enhanced-icon-glow {
+    opacity: 0.6;
+}
+
+.enhanced-timeline-content:hover .enhanced-timeline-icon i {
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(247, 233, 77, 0.5);
+}
+
+/* Enhanced Timeline List */
+.enhanced-timeline-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.enhanced-list-item {
+    margin: 1rem 0;
+    padding: 0.8rem 0 0.8rem 2rem;
+    position: relative;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 2px solid transparent;
+}
+
+.enhanced-list-item.enhanced-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.enhanced-list-item::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.enhanced-list-item:hover {
+    color: #ffffff;
+    border-left-color: rgba(247, 233, 77, 0.3);
+    padding-left: 2.2rem;
+}
+
+.enhanced-list-item:hover::before {
+    transform: translateX(4px);
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(247, 233, 77, 0.5);
+}
+
+/* Enhanced Progress Badges */
+.enhanced-progress-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.enhanced-badge-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: enhancedBadgePulse 2s ease-in-out infinite;
+}
+
+.enhanced-progress-badge.current {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.enhanced-progress-badge.current .enhanced-badge-pulse {
+    background: #22c55e;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+.enhanced-progress-badge.upcoming {
+    background: linear-gradient(135deg, rgba(247, 233, 77, 0.2), rgba(247, 233, 77, 0.1));
+    color: var(--primary-color);
+    border: 1px solid rgba(247, 233, 77, 0.3);
+}
+
+.enhanced-progress-badge.upcoming .enhanced-badge-pulse {
+    background: var(--primary-color);
+    box-shadow: 0 0 10px rgba(247, 233, 77, 0.5);
+}
+
+.enhanced-progress-badge.future {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.enhanced-progress-badge.future .enhanced-badge-pulse {
+    background: #3b82f6;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.enhanced-progress-badge.vision {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.1));
+    color: #a855f7;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.enhanced-progress-badge.vision .enhanced-badge-pulse {
+    background: #a855f7;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+/* Enhanced Card Highlight Effect */
+.enhanced-card-highlight {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(247, 233, 77, 0.1) 25%,
+            rgba(247, 233, 77, 0.2) 50%,
+            rgba(247, 233, 77, 0.1) 75%,
+            transparent 100%);
+    border-radius: 18px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+    animation: enhancedCardHighlight 6s ease-in-out infinite;
+}
+
+.enhanced-timeline-content:hover .enhanced-card-highlight {
+    opacity: 1;
+}
+
+/* Enhanced visual distinction for alternating sides */
+.enhanced-timeline-item:nth-child(even) .enhanced-timeline-content::before {
+    background: linear-gradient(135deg, rgba(247, 233, 77, 0.05) 0%, transparent 50%);
+}
+
+.enhanced-timeline-item:nth-child(odd) .enhanced-timeline-content::before {
+    background: linear-gradient(225deg, rgba(247, 233, 77, 0.05) 0%, transparent 50%);
+}
+
+/* Add subtle connecting lines from markers to center track */
+.enhanced-timeline-marker::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    background: linear-gradient(to right, rgba(247, 233, 77, 0.3), transparent);
+    z-index: 1;
+}
+
+.enhanced-timeline-item:nth-child(even) .enhanced-timeline-marker::after {
+    right: 0;
+    width: 2rem;
+    background: linear-gradient(to right, transparent, rgba(247, 233, 77, 0.3));
+}
+
+.enhanced-timeline-item:nth-child(odd) .enhanced-timeline-marker::after {
+    left: 0;
+    width: 2rem;
+    background: linear-gradient(to left, transparent, rgba(247, 233, 77, 0.3));
+}
+
+/* Animate connecting lines when items come into view */
+.enhanced-timeline-item.enhanced-in-view .enhanced-timeline-marker::after {
+    animation: enhancedConnectorFade 0.8s ease-out;
+}
+
+@keyframes enhancedConnectorFade {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+
+    100% {
+        opacity: 1;
+        width: 2rem;
+    }
+}
+
+/* Enhanced Timeline Animations */
+@keyframes enhancedProgressShimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes enhancedMarkerPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 0.1;
+    }
+}
+
+@keyframes enhancedIconRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes enhancedBadgePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes enhancedCardHighlight {
+
+    0%,
+    100% {
+        background: linear-gradient(45deg,
+                transparent 0%,
+                rgba(247, 233, 77, 0.05) 25%,
+                rgba(247, 233, 77, 0.1) 50%,
+                rgba(247, 233, 77, 0.05) 75%,
+                transparent 100%);
+    }
+
+    50% {
+        background: linear-gradient(45deg,
+                transparent 0%,
+                rgba(247, 233, 77, 0.1) 25%,
+                rgba(247, 233, 77, 0.2) 50%,
+                rgba(247, 233, 77, 0.1) 75%,
+                transparent 100%);
+    }
+}
+
+/* Enhanced Timeline Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .enhanced-timeline-track {
+        left: 30px;
+    }
+
+    .enhanced-timeline-marker {
+        flex: 0 0 100px;
+        padding-right: 1rem;
+    }
+
+    .enhanced-timeline-content {
+        padding: 2rem;
+    }
+
+    .enhanced-content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .enhanced-timeline-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .enhanced-timeline-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .enhanced-timeline-progress-container {
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .enhanced-timeline-wrapper {
+        padding: 1rem 0;
+    }
+
+    .enhanced-timeline-track {
+        left: 20px;
+        transform: none;
+        width: 2px;
+    }
+
+    /* Mobile: All items stack vertically on the right side */
+    .enhanced-timeline-item,
+    .enhanced-timeline-item:nth-child(even),
+    .enhanced-timeline-item:nth-child(odd) {
+        margin: 2rem 0;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .enhanced-timeline-marker,
+    .enhanced-timeline-item:nth-child(even) .enhanced-timeline-marker,
+    .enhanced-timeline-item:nth-child(odd) .enhanced-timeline-marker {
+        flex: none;
+        width: 100px;
+        text-align: left;
+        padding: 0 0 1rem 50px;
+        margin-bottom: 1rem;
+        align-items: flex-start;
+    }
+
+    .enhanced-marker-dot,
+    .enhanced-timeline-item:nth-child(even) .enhanced-marker-dot,
+    .enhanced-timeline-item:nth-child(odd) .enhanced-marker-dot {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        margin: 0;
+        width: 20px;
+        height: 20px;
+    }
+
+    .enhanced-timeline-content,
+    .enhanced-timeline-item:nth-child(even) .enhanced-timeline-content,
+    .enhanced-timeline-item:nth-child(odd) .enhanced-timeline-content {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 1.5rem;
+    }
+
+    .enhanced-content-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .enhanced-timeline-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .enhanced-timeline-icon i {
+        font-size: 1.2rem;
+    }
+
+    .enhanced-list-item {
+        font-size: 1rem;
+        padding: 0.6rem 0 0.6rem 1.5rem;
+    }
+
+    .enhanced-progress-badge {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .enhanced-timeline-progress-bar {
+        height: 3px;
+    }
+
+    .enhanced-progress-dot {
+        width: 12px;
+        height: 12px;
+    }
+
+    .enhanced-timeline-content,
+    .enhanced-timeline-item:nth-child(even) .enhanced-timeline-content,
+    .enhanced-timeline-item:nth-child(odd) .enhanced-timeline-content {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .enhanced-content-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .enhanced-timeline-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .enhanced-timeline-icon i {
+        font-size: 1rem;
+    }
+
+    .enhanced-list-item {
+        font-size: 0.95rem;
+        margin: 0.8rem 0;
+    }
+
+    .enhanced-progress-badge {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .enhanced-timeline-marker,
+    .enhanced-timeline-item:nth-child(even) .enhanced-timeline-marker,
+    .enhanced-timeline-item:nth-child(odd) .enhanced-timeline-marker {
+        width: 80px;
+        padding-left: 40px;
+    }
+
+    .enhanced-date {
+        font-size: 0.9rem;
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+
+    .enhanced-timeline-item,
+    .enhanced-list-item,
+    .enhanced-marker-pulse,
+    .enhanced-badge-pulse,
+    .enhanced-icon-glow,
+    .enhanced-card-highlight,
+    .enhanced-progress-fill::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .enhanced-timeline-content:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-contrast: high) {
+    .enhanced-timeline-content {
+        background: rgba(0, 0, 0, 0.9);
+        border-color: var(--primary-color);
+    }
+
+    .enhanced-progress-dot {
+        border-width: 3px;
+    }
+
+    .enhanced-marker-core {
+        box-shadow: 0 0 0 2px var(--primary-color);
+    }
+}
+
+/* Focus Styles for Accessibility */
+.enhanced-progress-dot:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.enhanced-timeline-content:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(247, 233, 77, 0.3);
+}
+
+/* Enhanced Timeline Loading States and Final Optimizations */
+.enhanced-timeline-wrapper {
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.enhanced-timeline-wrapper.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Performance optimizations */
+.enhanced-timeline-item {
+    contain: layout style paint;
+    will-change: transform, opacity;
+}
+
+.enhanced-timeline-item:not(.enhanced-in-view) {
+    transform: translateZ(0);
+    /* Force GPU acceleration */
+}
+
+/* Smooth scroll behavior for timeline navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .enhanced-timeline-wrapper {
+        transition: none;
+    }
+}
+
+/* Enhanced focus indicators for accessibility */
+.enhanced-progress-dot:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .enhanced-timeline-track::before {
+        background: #000;
+    }
+
+    .enhanced-marker-dot {
+        border-color: #000;
+    }
+}
+
+/* Final mobile touch improvements */
+@media (max-width: 768px) {
+    .enhanced-progress-dot {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .enhanced-content-card {
+        touch-action: manipulation;
+    }
+
+    /* Hide connecting lines on mobile */
+    .enhanced-timeline-marker::after,
+    .enhanced-timeline-item:nth-child(even) .enhanced-timeline-marker::after,
+    .enhanced-timeline-item:nth-child(odd) .enhanced-timeline-marker::after {
+        display: none;
+    }
+}

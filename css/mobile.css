@@ -212,237 +212,325 @@
     /* Mobile About Section */
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
+        padding: 0;
     }
 
-    /* Mobile Timeline */
-    .timeline:before {
-        left: 20px;
+    /* About Text Mobile Enhancements */
+    .about-text {
+        order: 1;
     }
 
-    .timeline-marker {
-        left: 20px;
+    .about-visual {
+        order: 2;
+        margin-top: 20px;
     }
 
-    .timeline-content {
-        margin-left: 50px;
-        padding: 20px;
+    /* Movement Banner Mobile Optimization */
+    .movement-banner {
+        padding: 20px 16px;
+        margin-bottom: 24px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(247, 233, 77, 0.12) 0%, rgba(10, 10, 10, 0.95) 100%);
+        border: 1px solid rgba(247, 233, 77, 0.2);
+        box-shadow: 0 4px 16px rgba(247, 233, 77, 0.08);
     }
 
-    .timeline-content:hover {
-        transform: none;
-    }
-
-    .timeline-icon {
-        display: none;
-    }
-
-    /* Mobile Process Steps */
-    .process-step {
-        padding: 15px;
-    }
-
-    .process-line {
-        display: none;
-    }
-
-    .process-callout {
+    .movement-banner .banner-content {
         flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .movement-banner .banner-content h3 {
+        font-size: 18px;
+        line-height: 1.4;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .pulse-icon {
+        font-size: 20px;
+        margin-bottom: 4px;
+    }
+
+    /* Intro Text Mobile Typography */
+    .intro-text {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: rgba(255, 255, 255, 0.85);
+        text-align: left;
+    }
+
+    /* Gradient Line Mobile */
+    .gradient-line {
+        height: 2px;
+        margin: 20px 0;
+        border-radius: 1px;
+    }
+
+    /* Core Values Mobile Grid */
+    .core-values {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 24px 0;
+    }
+
+    .value-card {
+        padding: 20px 16px;
+        text-align: center;
+        border-radius: 12px;
+        background: rgba(15, 15, 15, 0.6);
+        border: 1px solid rgba(242, 213, 2, 0.15);
+        transition: all 0.3s ease;
+    }
+
+    .value-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(242, 213, 2, 0.3);
+        background: rgba(15, 15, 15, 0.8);
+    }
+
+    .card-icon {
+        margin-bottom: 12px;
+    }
+
+    .card-icon i {
+        font-size: 24px;
+        color: var(--primary-color);
+    }
+
+    .value-card h4 {
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    .value-description {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    /* Feature List Mobile Optimization */
+    .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 24px 0;
+    }
+
+    .feature-item {
+        padding: 14px 16px;
+        font-size: 15px;
+        font-weight: 500;
+        background: rgba(242, 213, 2, 0.08);
+        border-left: 3px solid var(--primary-color);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        line-height: 1.4;
+        touch-action: manipulation;
+    }
+
+    .feature-item:hover,
+    .feature-item:active {
+        transform: translateX(4px);
+        background: rgba(242, 213, 2, 0.12);
+        border-left-width: 4px;
+    }
+
+    /* Modern Quote Mobile Styling */
+    .modern-quote {
+        padding: 20px 16px;
+        margin: 24px 0;
+        background: rgba(20, 20, 20, 0.8);
+        border-radius: 12px;
+        border: 1px solid rgba(242, 213, 2, 0.1);
+        text-align: center;
+    }
+
+    .modern-quote .movement-text {
+        font-size: 16px;
+        line-height: 1.5;
+        color: var(--primary-color);
+        font-weight: 600;
+        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+        margin: 0;
+    }
+
+    /* About Visual Mobile Optimization */
+    .about-visual {
+        min-height: 280px;
+        background: rgba(15, 15, 15, 0.4);
+        border-radius: 16px;
+        border: 1px solid rgba(242, 213, 2, 0.1);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .network-visualization {
+        width: 100%;
+        height: 280px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    /* Network Nodes Mobile Sizing */
+    .node {
+        border-radius: 50%;
+        position: absolute;
+        transition: all 0.3s ease;
+        will-change: transform;
+        backface-visibility: hidden;
+    }
+
+    .primary-node {
+        width: 40px;
+        height: 40px;
+        background: radial-gradient(circle, var(--primary-color), rgba(247, 233, 77, 0.6));
+        box-shadow: 0 0 20px rgba(247, 233, 77, 0.4);
+        z-index: 3;
+    }
+
+    .secondary-node {
+        width: 28px;
+        height: 28px;
+        background: radial-gradient(circle, rgba(247, 233, 77, 0.8), rgba(247, 233, 77, 0.4));
+        box-shadow: 0 0 15px rgba(247, 233, 77, 0.3);
+        z-index: 2;
+    }
+
+    .tertiary-node {
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(circle, rgba(247, 233, 77, 0.6), rgba(247, 233, 77, 0.2));
+        box-shadow: 0 0 10px rgba(247, 233, 77, 0.2);
+        z-index: 1;
+    }
+
+    /* Touch-friendly interactions */
+    .value-card,
+    .feature-item,
+    .modern-quote {
+        -webkit-tap-highlight-color: rgba(247, 233, 77, 0.1);
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    /* Mobile Typography Improvements */
+    .about .section-header h2 {
+        font-size: 32px;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    /* Responsive spacing adjustments */
+    .about {
+        padding: 50px 0;
+    }
+
+    .intro-content {
+        padding: 0;
+    }
+
+    /* Performance optimizations for mobile */
+    .about-visual .perspective-card {
+        transform: none !important;
+        transition: none;
+    }
+
+    /* Disable complex animations on mobile for better performance */
+    .typewriter {
+        animation: none;
+        white-space: normal;
+        overflow: visible;
+    }
+
+    /* ===============================================
+     * PROCESS CALLOUT MOBILE RESPONSIVE STYLES
+     * =============================================== */
+
+    /* Process Callout Mobile Layout */
+    .process-callout {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px 20px;
+        margin-top: 40px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(242, 213, 2, 0.08) 0%, rgba(15, 15, 15, 0.95) 100%);
+        border: 1px solid rgba(242, 213, 2, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .callout-content {
+        flex: none;
+        width: 100%;
+        margin: 0;
+    }
+
+    .callout-content h3 {
+        font-size: 22px;
+        line-height: 1.3;
+        margin-bottom: 12px;
+        color: var(--primary-color);
+        font-weight: 700;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .callout-content p {
+        font-size: 16px;
+        line-height: 1.5;
+        max-width: 100%;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0;
         text-align: center;
     }
 
     .callout-action {
         margin-left: 0;
-        margin-top: 20px;
-    }
-
-    .step-icon {
-        position: static;
-        margin-top: 15px;
-    }
-
-    /* Mobile Features Tabs */
-    .tab-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .tab-navigation {
-        flex-wrap: wrap;
+        width: 100%;
+        display: flex;
         justify-content: center;
     }
 
-    .tab-button {
-        margin-bottom: 10px;
-    }
-
-    .features-tabs {
-        padding: 0;
-    }
-
-    .tab-navigation {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .tab-button {
-        flex: 1 1 calc(50% - 5px);
-        min-width: 140px;
-        padding: 12px;
-        font-size: 14px;
-    }
-
-    .tab-visual {
-        min-height: 200px;
-    }
-
-    .feature-icon-large {
-        font-size: 36px;
-    }
-
-    .tab-description {
-        text-align: center;
-    }
-
-    .feature-list-detailed {
-        text-align: left;
-    }
-
-    /* Mobile Community Grid */
-    .community-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .social-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Mobile Footer */
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .footer-links {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-badge {
-        margin-top: 20px;
-    }
-
-    .footer-brand p {
-        max-width: 100%;
-    }
-
-    /* Mobile Performance Optimizations */
-    .perspective-card:hover {
-        transform: none !important;
-    }
-
-    .timeline-content:hover {
-        transform: none;
-    }
-
-    .process-step {
-        padding: 15px;
-    }
-
-    .process-line {
-        display: none;
-    }
-
-    .social-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Optimize animations for mobile performance */
-    .floating-element {
-        display: none;
-    }
-
-    #vanta-animation {
-        opacity: 0.5;
-    }
-
-    .parallax-bg {
-        transform: none !important;
-    }
-
-    /* Reduce the impact of heavy animations */
-    .glow-text {
-        text-shadow: 0 0 5px rgba(247, 233, 77, 0.2);
-    }
-
-    /* Mobile-optimized animations */
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.02);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    @keyframes float {
-
-        0%,
-        100% {
-            transform: translateY(0px);
-        }
-
-        50% {
-            transform: translateY(-5px);
-        }
-    }
-
-    /* Mobile Core Values */
-    .core-values {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-
-    .value-card {
-        padding: 20px;
-    }
-
-    .value-card i {
-        font-size: 24px;
-    }
-
-    .value-card h4 {
+    .callout-action .cta-button {
+        width: 100%;
+        max-width: 280px;
+        padding: 16px 24px;
         font-size: 16px;
-    }
-
-    .movement-banner {
-        padding: 1.5rem;
-        background: linear-gradient(135deg, rgba(247, 233, 77, 0.12) 0%, rgba(10, 10, 10, 0.95) 100%);
-    }
-
-    .banner-content {
-        flex-direction: column;
+        font-weight: 600;
+        border-radius: 12px;
         text-align: center;
-        gap: 1rem;
+        box-shadow: 0 4px 16px rgba(242, 213, 2, 0.2);
+        transition: all 0.3s ease;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-tap-highlight-color: rgba(242, 213, 2, 0.2);
     }
 
-    .banner-content h3 {
-        font-size: 1.25rem;
+    .callout-action .cta-button:hover,
+    .callout-action .cta-button:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(242, 213, 2, 0.3);
     }
 
-    .movement-text {
-        font-size: 1.2rem;
-        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+    .callout-action .cta-button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(242, 213, 2, 0.2);
     }
 }
 
@@ -520,12 +608,160 @@
         grid-template-columns: 1fr;
         gap: 12px;
     }
+
+    /* Enhanced About Section for Extra Small Screens */
+    .about {
+        padding: 40px 0;
+    }
+
+    .about .section-header h2 {
+        font-size: 28px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .about-grid {
+        gap: 24px;
+    }
+
+    /* Movement Banner Extra Small */
+    .movement-banner {
+        padding: 16px 12px;
+        margin-bottom: 20px;
+    }
+
+    .movement-banner .banner-content h3 {
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
+    .pulse-icon {
+        font-size: 18px;
+    }
+
+    /* Core Values Extra Small */
+    .core-values {
+        gap: 12px;
+        margin: 20px 0;
+    }
+
+    .value-card {
+        padding: 16px 12px;
+    }
+
+    .value-card h4 {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .value-description {
+        font-size: 13px;
+    }
+
+    .card-icon i {
+        font-size: 20px;
+    }
+
+    /* Feature List Extra Small */
+    .feature-list {
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .feature-item {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    /* Modern Quote Extra Small */
+    .modern-quote {
+        padding: 16px 12px;
+        margin: 20px 0;
+    }
+
+    .modern-quote .movement-text {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    /* About Visual Extra Small */
+    .about-visual {
+        min-height: 240px;
+    }
+
+    .network-visualization {
+        height: 240px;
+    }
+
+    /* Smaller node sizes for very small screens */
+    .primary-node {
+        width: 32px;
+        height: 32px;
+    }
+
+    .secondary-node {
+        width: 24px;
+        height: 24px;
+    }
+
+    .tertiary-node {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Typography adjustments */
+    .intro-text {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+    }
+
+    .gradient-line {
+        margin: 16px 0;
+    }
+
+    /* Process Callout Extra Small Optimization */
+    .process-callout {
+        padding: 20px 16px;
+        margin-top: 32px;
+        gap: 20px;
+        border-radius: 12px;
+    }
+
+    .callout-content h3 {
+        font-size: 20px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    .callout-content p {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    .callout-action .cta-button {
+        max-width: 100%;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
 }
 
 /* Footer Mobile Styles */
 @media (max-width: 576px) {
     .footer-links {
         grid-template-columns: 1fr;
+    }
+
+    .process-step {
+        padding-left: 55px !important;
+    }
+
+    .step-content {
+        padding: 20px !important;
+    }
+
+    .about-visual {
+        height: 242px !important;
     }
 }
 
@@ -556,7 +792,7 @@
 }
 
 .logo img {
-    height: 30px;
+    height: 40px;
     margin-right: 8px;
 }
 
@@ -567,4 +803,286 @@
 .nav-links a.active-link {
     border-bottom: 1px solid var(--primary-color);
     background: rgba(247, 233, 77, 0.05);
+}
+
+
+/* Mobile Landscape Orientation Optimizations */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .about {
+        padding: 30px 0;
+    }
+
+    .about-grid {
+        gap: 20px;
+    }
+
+    .movement-banner {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .movement-banner .banner-content {
+        flex-direction: row;
+        text-align: left;
+        gap: 16px;
+    }
+
+    .movement-banner .banner-content h3 {
+        font-size: 16px;
+    }
+
+    .core-values {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin: 16px 0;
+    }
+
+    .value-card {
+        padding: 14px 12px;
+    }
+
+    .feature-list {
+        margin: 16px 0;
+    }
+
+    .about-visual {
+        min-height: 200px;
+    }
+
+    .network-visualization {
+        height: 200px;
+    }
+
+    /* Process Callout Mobile Landscape Optimization */
+    .process-callout {
+        flex-direction: row;
+        text-align: left;
+        gap: 20px;
+        padding: 20px 24px;
+        align-items: center;
+    }
+
+    .callout-content {
+        flex: 1;
+    }
+
+    .callout-content p {
+        text-align: left;
+    }
+
+    .callout-action {
+        flex-shrink: 0;
+        width: auto;
+    }
+
+    .callout-action .cta-button {
+        width: auto;
+        min-width: 160px;
+        max-width: 200px;
+    }
+}
+
+/* Mobile Accessibility Enhancements */
+@media (max-width: 768px) {
+
+    /* Focus styles for mobile */
+    .value-card:focus,
+    .feature-item:focus,
+    .modern-quote:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+        border-color: var(--primary-color);
+    }
+
+    /* Improved contrast for mobile readability */
+    .value-description {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .intro-text {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Better touch targets - minimum 44px */
+    .value-card,
+    .feature-item {
+        min-height: 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+
+        .value-card,
+        .feature-item,
+        .movement-banner {
+            transition: none;
+        }
+
+        .pulse-icon {
+            animation: none;
+        }
+
+        .gradient-line {
+            animation: none;
+        }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+        .movement-banner {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid var(--primary-color);
+        }
+
+        .value-card {
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--primary-color);
+        }
+
+        .feature-item {
+            background: rgba(0, 0, 0, 0.9);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .modern-quote {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid var(--primary-color);
+        }
+    }
+}
+
+/* Mobile Performance Optimizations for About Section */
+@media (max-width: 768px) {
+
+    /* Optimize animations for mobile performance */
+    .about .reveal-element {
+        animation-duration: 0.4s;
+        animation-timing-function: ease-out;
+    }
+
+    /* Simplified stagger animations for mobile */
+    .value-card {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .feature-item {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Mobile-optimized hover states */
+    @media (hover: hover) {
+        .value-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .feature-item:hover {
+            transform: translateX(4px);
+        }
+    }
+
+    /* Touch device optimizations */
+    @media (hover: none) {
+        .value-card:active {
+            transform: scale(0.98);
+            background: rgba(15, 15, 15, 0.9);
+        }
+
+        .feature-item:active {
+            transform: scale(0.98);
+            background: rgba(242, 213, 2, 0.15);
+        }
+    }
+
+    /* Disable complex CSS transforms on older mobile devices */
+    @supports not (transform: perspective(1000px)) {
+        .about-visual .perspective-card {
+            transform: none !important;
+        }
+
+        .value-card,
+        .feature-item {
+            transform: none !important;
+        }
+    }
+}
+
+/* Mobile-specific utility classes */
+@media (max-width: 768px) {
+    .about .mobile-center {
+        text-align: center;
+    }
+
+    .about .mobile-left {
+        text-align: left;
+    }
+
+    .about .mobile-hidden {
+        display: none;
+    }
+
+    .about .mobile-visible {
+        display: block;
+    }
+
+    /* Mobile spacing utilities */
+    .about .mobile-spacing-sm {
+        margin-bottom: 12px;
+    }
+
+    .about .mobile-spacing-md {
+        margin-bottom: 20px;
+    }
+
+    .about .mobile-spacing-lg {
+        margin-bottom: 32px;
+    }
+}
+
+/* Mobile Network Visualization Enhancements */
+@media (max-width: 768px) {
+    .network-visualization {
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    #network-connections {
+        pointer-events: none;
+    }
+
+    /* Improve mobile canvas performance */
+    .network-visualization canvas {
+        will-change: auto;
+        image-rendering: optimizeSpeed;
+        image-rendering: -webkit-optimize-contrast;
+    }
+
+    /* Mobile node positioning adjustments */
+    .node {
+        will-change: transform;
+        backface-visibility: hidden;
+    }
+
+    .pulse {
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+    }
+
+    /* Disable complex animations on low-powered devices */
+    @media (max-width: 768px) and (max-resolution: 1dppx) {
+        .pulse {
+            animation: none;
+            box-shadow: 0 0 10px rgba(242, 213, 2, 0.3);
+        }
+
+        #network-connections {
+            display: none;
+        }
+    }
 }
