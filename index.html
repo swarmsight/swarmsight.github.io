@@ -50,23 +50,43 @@
         </div>
     </nav><!-- Hero Section -->
     <section class="hero parallax-section" data-depth="0.3">
-        <div id="vanta-animation" class="parallax-bg"></div>
+        <div class="parallax-bg"></div>
 
-        <!-- Floating background elements -->
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
+        <!-- Hero background elements -->
+        <div class="hero-bg">
+            <div class="gradient-overlay"></div>
+            <div class="grid-lines"></div>
+        </div>
 
-        <div class="container">
-            <div class="hero-content split-text reveal-element">
-                <span class="badge reveal-element">Swarm Active <span class="highlight">Solana</span></span>
+        <div class="container hero-container">
+            <div class="hero-content centered-layout reveal-element">
+                <div class="hero-badge-wrapper">
+                    <span class="badge reveal-element">Swarm Active <span class="highlight">Solana</span></span>
+                </div>
+
                 <h1 class="glow-text hero-title split-header" data-color-transition>AI-Powered Swarms for Trustless Web3
                 </h1>
-                <p class="hero-description reveal-element">Autonomous agents verifying content, automating actions, and
-                    securing data —
-                    powered by collective
-                    intelligence and built on decentralized networks.</p>
+
+                <p class="hero-description reveal-element">
+                    Autonomous agents verifying content, automating actions, and securing data —
+                    powered by collective intelligence and built on decentralized networks.
+                </p>
+
+                <div class="hero-stats reveal-element">
+                    <div class="stat-item">
+                        <span class="stat-value">10K+</span>
+                        <span class="stat-label">Active Agents</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">5M+</span>
+                        <span class="stat-label">Verifications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">99.9%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                </div>
+
                 <div class="hero-cta reveal-element">
                     <a href="#community" class="cta-button">
                         <i class="fas fa-users"></i>
@@ -76,15 +96,6 @@
                         <i class="fas fa-file-alt"></i>
                         Read Vision Paper
                     </a>
-                </div>
-            </div>
-            <div class="hero-image reveal-element">
-                <div class="swarm-animation">
-                    <canvas id="swarm-canvas"></canvas>
-                </div>
-                <div class="hero-badge">
-                    <div class="pulse-dot"></div>
-                    <span>Swarm Active</span>
                 </div>
             </div>
         </div>

@@ -408,7 +408,6 @@ document.addEventListener("DOMContentLoaded", function () {
       card.style.background = "";
     });
   });
-
   // Movement Banner and Core Values Animations
   function initAboutSectionAnimations() {
     // Animate movement banner
@@ -416,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".movement-banner",
         start: "top bottom-=100px",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       },
       opacity: 0,
       y: 30,
@@ -429,7 +428,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".core-values",
         start: "top bottom-=100px",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       },
       opacity: 0,
       y: 40,

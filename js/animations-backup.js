@@ -1033,7 +1033,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.removeEventListener('resize', this.handleResize);
     }
   }
-
   // Movement Banner and Core Values Animations
   function initAboutSectionAnimations() {
     // Animate movement banner
@@ -1041,7 +1040,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".movement-banner",
         start: "top bottom-=100px",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       },
       opacity: 0,
       y: 30,
@@ -1054,7 +1053,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".core-values",
         start: "top bottom-=100px",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       },
       opacity: 0,
       y: 40,
@@ -1068,7 +1067,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollTrigger: {
         trigger: ".core-values",
         start: "top bottom-=100px",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       },
       duration: 1,
       scale: 1.1,
