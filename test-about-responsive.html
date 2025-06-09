@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Section Mobile Responsiveness Test</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <style>
+        /* Additional test styles for visual testing */
+        .test-breakpoint {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(242, 213, 2, 0.9);
+            color: black;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            z-index: 9999;
+            font-size: 12px;
+        }
+
+        .test-breakpoint::after {
+            content: "Desktop";
+        }
+
+        @media (max-width: 768px) {
+            .test-breakpoint::after {
+                content: "Mobile";
+            }
+        }
+
+        @media (max-width: 480px) {
+            .test-breakpoint::after {
+                content: "XS Mobile";
+            }
+        }
+
+        @media screen and (max-width: 768px) and (orientation: landscape) {
+            .test-breakpoint::after {
+                content: "Mobile Landscape";
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-breakpoint"></div>
+
+    <!-- About SwarmSight Section -->
+    <section class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="reveal-element">About SwarmSight</h2>
+            </div>
+
+            <div class="about-grid reveal-element">
+                <div class="about-text">
+                    <!-- Movement Banner -->
+                    <div class="movement-banner">
+                        <div class="banner-content">
+                            <div class="pulse-icon">🌟</div>
+                            <h3>Revolutionizing Data Intelligence Through Collective Behavior Analysis</h3>
+                        </div>
+                    </div>
+
+                    <!-- Intro Text -->
+                    <p class="intro-text">
+                        SwarmSight represents a paradigm shift in data analysis, inspired by the collective intelligence
+                        found in nature's most successful systems. From ant colonies to bird flocks, swarm behavior
+                        demonstrates how simple interactions can yield complex, intelligent outcomes.
+                    </p>
+
+                    <div class="gradient-line"></div>
+
+                    <!-- Core Values -->
+                    <div class="core-values">
+                        <div class="value-card">
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>Collective Intelligence</h4>
+                            <p class="value-description">Harness the power of distributed decision-making for superior
+                                insights.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="card-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <h4>Adaptive Learning</h4>
+                            <p class="value-description">Systems that evolve and improve through continuous feedback
+                                loops.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="card-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h4>Emergent Patterns</h4>
+                            <p class="value-description">Discover hidden connections and patterns in complex data
+                                ecosystems.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature List -->
+                    <div class="feature-list">
+                        <div class="feature-item">🔍 Advanced Pattern Recognition</div>
+                        <div class="feature-item">🧠 Collective Intelligence Processing</div>
+                        <div class="feature-item">📊 Real-time Swarm Analytics</div>
+                        <div class="feature-item">🌐 Distributed Decision Networks</div>
+                        <div class="feature-item">⚡ Emergent Behavior Modeling</div>
+                    </div>
+
+                    <!-- Modern Quote -->
+                    <div class="modern-quote">
+                        <p class="movement-text">
+                            "In the collective behavior of simple agents, we find the blueprint for tomorrow's most
+                            intelligent systems."
+                        </p>
+                    </div>
+
+                    <!-- Process Callout -->
+                    <div class="process-callout">
+                        <div class="callout-content">
+                            <h3>Experience the Future of Data Intelligence</h3>
+                            <p>Join the movement towards smarter, more adaptive data analysis systems that learn and
+                                evolve with your needs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-visual">
+                    <div class="network-visualization">
+                        <!-- Primary nodes -->
+                        <div class="node primary-node" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        </div>
+
+                        <!-- Secondary nodes -->
+                        <div class="node secondary-node" style="top: 30%; left: 30%;"></div>
+                        <div class="node secondary-node" style="top: 30%; right: 30%;"></div>
+                        <div class="node secondary-node" style="bottom: 30%; left: 30%;"></div>
+                        <div class="node secondary-node" style="bottom: 30%; right: 30%;"></div>
+
+                        <!-- Tertiary nodes -->
+                        <div class="node tertiary-node" style="top: 20%; left: 50%;"></div>
+                        <div class="node tertiary-node" style="bottom: 20%; left: 50%;"></div>
+                        <div class="node tertiary-node" style="top: 50%; left: 20%;"></div>
+                        <div class="node tertiary-node" style="top: 50%; right: 20%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple animations for the test
+        document.addEventListener('DOMContentLoaded', function () {
+            const nodes = document.querySelectorAll('.node');
+            nodes.forEach((node, index) => {
+                setInterval(() => {
+                    const randomX = Math.random() * 10 - 5;
+                    const randomY = Math.random() * 10 - 5;
+                    node.style.transform += ` translate(${randomX}px, ${randomY}px)`;
+                }, 2000 + (index * 200));
+            });
+        });
+    </script>
+</body>
+
+</html>
